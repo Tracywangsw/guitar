@@ -1,0 +1,19 @@
+h3 消息列表
+
+table
+  thead
+    tr
+      th Link
+      th Has read
+      th
+      th
+
+  tbody
+    - @messages.each do |message|
+      tr
+        td = link_to message.content, read_message_path(message, msg_id: message.id)
+        td = message.has_read
+        td = message.created_at.to_s(:db) 
+        td = link_to 'Destroy', message, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+

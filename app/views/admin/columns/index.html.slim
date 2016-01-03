@@ -1,0 +1,56 @@
+h1.page-header 课程介绍管理
+
+a.btn.btn-primary.btn-block href=new_admin_column_path
+  i.fa.fa-plus
+  | 添加课程介绍
+
+.panel.panel-default.columns
+  .panel-heading 所有课程介绍
+  table.table
+    thead
+      tr
+        th 课程介绍名称
+        th 视频链接
+        th 封面图片
+        th 描述
+        th 是否推荐到首页
+        th 课程相册
+        th 操作
+    tbody
+      - @columns.each do |column|
+        tr data-column-id=column.id
+          td = column.name
+          td = truncate(column.video_url, length: 50)
+          td
+            - if column.cover_image
+              a.cover-image href=column.cover_image.file.url
+                img src=column.cover_image.file.url width = 100 height = 100
+            - else
+              = '还未设置封面图片'
+          td = column.description
+          td = column.is_recommend
+          td
+            a href=admin_column_path(column) target='_blank' 查看相册
+          td
+            a.delete-column data-url=admin_column_path(column) 删除
+            | |
+            a href=edit_admin_column_path(column) 编辑
+
+javascript:
+  $(".delete-column").click(function(evt) {
+    var url = evt.target.getAttribute("data-url")
+    $.ajax({
+      url: url,
+      method: "POST",
+      data: {
+        "_method": "delete",
+      },
+      success: function() {
+        $(evt.target).closest("tr").remove()
+        swal("删除成功！", "", "success")
+      },
+      error: function() {
+        swal("删除失败", "", "error")
+      },
+    })
+  })

@@ -1,0 +1,62 @@
+- if @course.errors.any?
+  .alert.alert-danger
+    - @course.errors.full_messages.each do |m|
+      p = m
+
+= form_for [:admin, @course], html: { class: "form-horizontal" } do |f|
+  .form-group
+    = f.label :name, "弦木视频名称", class: 'control-label col-md-2'
+    .col-md-10
+      = f.text_field :name, class: 'form-control'
+
+  .form-group
+    = f.label :video_url, "视频链接", class: 'control-label col-md-2'
+    .col-md-10
+      = f.text_field :video_url, class: 'form-control'
+
+  .form-group
+    = f.label :description, "视频描述", class: 'control-label col-md-2'
+    .col-md-10
+      = f.text_area :description, class: 'form-control'
+
+  .form-group
+    = f.label :cover_image, "选择封面图片", class: 'control-label col-md-2'
+    .col-md-10
+      = f.file_field :cover_image, class: 'form-control'
+
+  .form-group
+    = f.label :score_id, "选择曲谱", class: 'control-label col-md-2'
+    .col-md-10
+      - if Score.all.length == 0 then disabled = true
+        p.form-control
+          | 没有任何曲谱!!!&nbsp;
+          a href=admin_scores_path 曲谱管理
+      - else
+        = f.collection_select :score_id, Score.all, :id, :name, {}, class: 'form-control'
+
+  .form-group
+    = label_tag :tag, "标签", class: 'control-label col-md-2'
+    .col-md-10
+      = text_field_tag :tag, Tag.get_all_tags(@course.tags), class: 'form-control'
+
+  .form-group
+    = label_tag :tag, "已有标签", class: 'control-label col-md-2'
+    .col-md-10
+      - @tags.each do |t|
+        span.label.label-info 
+          a.add_tag = t.name
+
+  .form-group
+    .col-md-offset-10.col-md-1
+      a.btn.btn-info.btn-block href=admin_courses_path 返回
+    .col-md-1
+      - text = @course.new_record? ? "提交" : "更新"
+      = f.submit text, class: 'btn btn-primary btn-block', disabled: disabled
+
+javascript:
+  $('.add_tag').click(function(){
+    var tag_text = $('#tag').val()
+    if(tag_text.indexOf($(this).text()) < 0){
+      $('#tag').val(tag_text+" "+$(this).text())
+    }
+  })

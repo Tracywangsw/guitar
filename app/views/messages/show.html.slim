@@ -1,0 +1,21 @@
+p#notice = notice
+
+p
+  strong User:
+  = @message.user_id
+p
+  strong Content:
+  = @message.content
+p
+  strong Link:
+  = @message.link
+p
+  strong Has read:
+  = @message.has_read
+p
+  strong Level:
+  = @message.level
+
+= link_to 'Edit', edit_message_path(@message)
+'|
+= link_to 'Back', messages_path

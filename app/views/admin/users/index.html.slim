@@ -1,0 +1,31 @@
+h1.page-header 用户管理
+
+a.btn.btn-primary.btn-block href=new_admin_user_path
+  i.fa.fa-plus
+  | 添加管理员
+
+.panel.panel-default.courses
+  .panel-heading 所有用户
+  table.table
+    thead
+      tr
+        th 邮箱
+        th 用户名
+        th 状态
+        th 操作
+    tbody
+      - @users.each do |user|
+        tr data-user-id=user.id
+            td = user.email
+            td = user.username
+            - if user.is_frozen == true
+              td.status = "冻结"
+              td
+                a.delete-user href=frozen_admin_user_path(user) 解除冻结
+            - else
+              td.status = "正常"
+              td
+                a.delete-user href=frozen_admin_user_path(user) 冻结
+
+
+

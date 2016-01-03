@@ -1,0 +1,17 @@
+body, html {
+	height: 100%;
+}
+.content {
+	width: 100%;
+	height: 100%;
+	margin: 10px auto;
+}
+@media screen and (min-width:980px) {
+	.content {
+		width: 70%;
+	}
+}
+.mygallery {
+	margin: 10px 0;
+	margin-bottom: 60px;
+}

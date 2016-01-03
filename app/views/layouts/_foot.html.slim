@@ -1,0 +1,52 @@
+  - if login?
+    = render 'layouts/my'
+  .container
+    footer
+      nav.cd-stretchy-nav
+        a.cd-nav-trigger[href="#0"]
+          span[aria-hidden="true"]
+        ul
+          li
+            a.active[href=root_path]
+              span
+                | 首页
+          li
+            a[href=courses_path]
+              span
+                | 弦木视频
+          li
+            a[href=columns_path]
+              span
+                | 课程介绍
+          li
+            a[href=photo_shows_path]
+              span
+                | Photo Show
+          li
+            a[href=about_path]
+              span
+                | 关于弦木
+        span.stretchy-nav-bg[aria-hidden="true"]
+    .xm_footer
+      .xm_name
+        .xm_name_content
+          |  弦木吉他 
+      .xm_search
+        .search
+          a href=tags_path title="视频标签"
+            svg.search-svg[viewbox="0 0 320 70" data-init="M150,3 L150,3 a17,17 0 0,1 0,34 L150,37 a17,17 0 0,1 0,-34 M177,47 161.21,31.21" data-mid="M160,3 L160,3 a27,27 0 0,1 0,54 L160,57 a27,27 0 0,1 0,-54 M179.5,49.5 179.5,49.5" data-active="M0,3 L393,3 a27,27 0 0,1 0,54 L0,57 a27,27 0 0,1 0,-54 M279.5,49.5 279.5,49.5"]
+              path.search-svg__path[d="M150,3 L150,3 a17,17 0 0,1 0,34 L150,37 a17,17 0 0,1 0,-34 M177,47 161.21,31.21"]
+      .xm_login
+        .login_reg
+          - if login?
+            span
+              a href=user_path(current_user) = default_username
+            span
+              a href=logout_path data-method="delete" 退出
+          - else
+            span
+              a[href=login_path title="登录"]
+                | 登录
+            span
+              a[href=register_path title="注册"]
+                | 注册

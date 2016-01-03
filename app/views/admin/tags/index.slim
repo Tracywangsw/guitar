@@ -1,0 +1,28 @@
+h1.page-header 所有标签
+
+a.btn.btn-block.btn-info href=new_admin_tag_path
+  i.fa.fa-plus 添加标签
+
+table.table.text-center
+  thead
+    tr
+      th 名称
+      th 封面图片
+      th 对应视频
+      th 操作
+  tbody
+    - @tags.each do |tag|
+      tr
+        th = tag.name
+        th 
+          - if tag.cover_image
+            img src=tag.cover_image.file.url width = 100 height = 100
+          - else
+            = '还未设置封面图片'
+          
+        th 
+          a href=admin_tag_path(tag) #{tag.name}
+        th
+          a.btn.edit-tag href=edit_admin_tag_path(tag) 编辑
+          | |
+          a.btn.remove-tag href=admin_tag_path(tag) data-method="delete" 删除

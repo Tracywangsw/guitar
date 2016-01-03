@@ -1,0 +1,17 @@
+img src=asset_path("courses/banner.jpg")
+
+.courses
+  ul.categories
+    - { level_low: '新手入门', level_medium: "弹唱教学", level_high: "高端进阶" }.each do |k, v|
+      - klass = k == @level ? "active" : ""
+      li class=klass
+        a href="#{courses_path}?level=#{k}" = v
+
+  ul.items
+    - @courses.each do |course|
+      li
+        a href=course_path(course)
+          img src=course.get_cover_image_url
+        .meta
+          span = course.name
+          span = course.comments.unblocked.length

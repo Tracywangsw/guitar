@@ -1,0 +1,22 @@
+h Listing course_comments
+
+table
+  thead
+    tr
+      th User
+      th Content
+      th Type
+      th is_block
+      th
+      th
+
+  tbody
+    - @comments.each do |c|
+      tr
+        td = User.find(c.user_id).email
+        td = c.content
+        td = c.review_type
+        td = c.is_block
+        td = link_to 'Block/Unblock', comment_block_path(:comment_id => c.id), data: {:confirm => 'Are you sure?'}
+
+br

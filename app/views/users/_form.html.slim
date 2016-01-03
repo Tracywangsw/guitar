@@ -1,0 +1,32 @@
+- if @user.errors.any?
+  .alert.alert-danger
+    - @user.errors.full_messages.each do |m|
+      p = m
+= form_for @user, html: {class: "login-form"} do |f|
+  .row.margin
+    .input-field.col.s12
+      i.mdi-social-person-outline.prefix
+      = f.text_field :username, class: "validate", id: "username"
+      label.center-align[for="username"]
+        | 用户名
+  .row.margin
+    .input-field.col.s12
+      i.mdi-communication-email.prefix
+      = f.text_field :email, class: "validate", id: "email"
+      label.center-align[for="email"]
+        | 邮箱
+  .row.margin
+    .input-field.col.s12
+      i.mdi-action-lock-outline.prefix
+      = f.password_field :password, class: "validate", id: "password"
+      label[for="password"]
+        | 密码
+  .row.margin
+    .input-field.col.s12
+      i.mdi-action-lock-outline.prefix
+      = f.password_field :password_confirmation, class: "validate", id: "password-again"
+      label[for="password-again"]
+        | 确认密码
+  .row
+    .input-field.col.s12[style=" margin-left:10%;width: 80%;"]
+      = f.submit "注册", class: "btn waves-effect waves-light col s12", style: "color:green " 

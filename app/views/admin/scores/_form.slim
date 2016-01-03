@@ -1,0 +1,20 @@
+= form_for([:admin, @score], html: { class: 'form-horizontal' }) do |f|
+  .form-group
+    = f.label :name, "曲谱名称", class: 'control-label col-md-2'
+    .col-md-10
+      = f.text_field :name, class: 'form-control'
+
+  .form-group
+    = f.label :description, "描述", class: 'control-label col-md-2'
+    .col-md-10
+      = f.text_field :description, class: 'form-control'
+
+  .form-group
+    = f.label :images, "选择曲谱图片(可多选）", class: 'control-label col-md-2'
+    .col-md-10
+      = f.file_field :images, multiple: true, class: 'form-control'
+
+  .form-group
+    .col-md-offset-10.col-md-2
+      - text = @score.new_record? ? "提交" : "更新"
+      = f.submit text,class: 'btn btn-primary btn-block'

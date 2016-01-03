@@ -1,0 +1,135 @@
+﻿.xm_service ul {
+  list-style: none;
+}
+.xm_service li {
+  float: left;
+  margin-right: 2em;
+}
+
+/*a, a:visited {
+    color: #aaa;
+    text-decoration: none;
+}
+a.active, a:hover {
+    color: #fff;
+    text-decoration: none;
+}*/
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Hiragino Sans GB W3", "WenQuanYi Micro Hei", "Microsoft YaHei UI", "Microsoft YaHei", sans-serif;
+}
+.container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  color: white;
+  font-weight: bold;
+}
+.xm_logo_english {
+  font-size: 12px;
+  font-weight: bold;
+  padding: 0;
+  line-height: 12px;
+}
+a {
+  color: white;
+  text-decoration: none;
+}
+.xm_logo {
+  z-index: 100;
+  margin-left: 80px;
+  margin-top: 16px;
+  width: 260px;
+  height: 90px;
+  position: absolute;
+  word-spacing: 12px;
+  Letter-spacing: 3px;
+  color: gray;
+}
+.xm_logo_desc {
+  float: right;
+  text-align: center;
+  margin-top: 15%;
+}
+ 
+.xm_service {
+    z-index: 100;
+    margin-right: 30px;
+    margin-top: 20px;
+    right: 0;
+    width: 170px;
+    height: 220px;
+    position: absolute;
+}
+
+
+
+hr {
+  height: 1px;
+  border: none;
+  border-top: 1px solid gray;
+}
+.xm_service ul { 
+  padding-top: 42px;
+  margin-left: 24px;
+  overflow: hidden;
+  list-style: none;
+}
+.xm_service ul li {
+    float: left;
+    display: inline;
+    margin-left: 2px;
+    width: 1px;
+        margin-top: 10px;
+    height: 100px;
+    font-size: 10px;
+  word-wrap: break-word;
+  word-break: nomal;
+}
+.service_txt{
+  height:100%; 
+  position: relative;
+  margin-top: -100%;
+}
+
+.xm_service ul li:nth-child(2){
+    float: left;
+    display: inline;
+    margin-left: 5px;
+    width: 1px;
+    height: 100px;
+    margin-top: 10px;
+    font-size: 10px;
+  word-wrap: break-word;
+  word-break: nomal;
+}
+
+.xm_service ul li:nth-child(3){
+    float: left;
+    display: inline;
+    margin-left: 5px;
+    width: 1px;
+    height: 100px;
+    margin-top: -10px;
+    font-size: 10px;
+  word-wrap: break-word;
+  word-break: nomal;
+}
+
+.xm_service a{ 
+  color: #fff;
+  text-decoration: none;
+}
+
+.xm_service a:hover{
+  color: #a4f4f4;
+  text-decoration: none;
+}

@@ -1,0 +1,34 @@
+h1.page-header ="#{@column.name} 课程相册 "
+
+.alert.alert-info 拖动来改变图片顺序
+
+ul.images data-url=admin_column_path(@column)
+  - @column.images.each do |image|
+    li data-id=image.id
+      img src=image.file.url
+
+.buttons.pull-right
+  button.btn.btn-info.save-result 保存排序结果
+  a.btn.btn-primary href=admin_columns_path 返回
+
+javascript:
+  Sortable.create($(".images").get(0))
+
+  $(".save-result").click(function() {
+    var ids = $(".images li").get().map(function(li) {
+      return parseInt(li.getAttribute("data-id"))
+    })
+    var url = $(".images").attr("data-url") + "/update_images_order"
+    $.ajax(url, {
+      method: "PATCH",
+      data: {
+        ids: ids,
+      },
+      success: function() {
+        swal("更新成功","","success")
+      },
+      error: function(jqXHR, status, error) {
+        swal(status, error, "error")
+      }
+    })
+  })

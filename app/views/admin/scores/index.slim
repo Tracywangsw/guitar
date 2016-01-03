@@ -1,0 +1,23 @@
+h1.page-header 所有曲谱
+
+a.btn.btn-block.btn-info href=new_admin_score_path
+  i.fa.fa-plus 添加曲谱
+
+table.table.text-center
+  thead
+    tr
+      th 名称
+      th 描述
+      th 图片数量
+      th 操作
+  tbody
+    - @scores.each do |score|
+      tr
+        th
+          a href=admin_score_path(score) #{score.name}
+        th = score.description
+        th = score.image_ids.length
+        th
+          a.btn.edit-score href=edit_admin_score_path(score) 编辑
+          | |
+          a.btn.remove-score href=admin_score_path(score) data-method="delete" 删除

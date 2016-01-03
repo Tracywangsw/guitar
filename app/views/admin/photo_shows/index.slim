@@ -1,0 +1,23 @@
+h1.page-header 所有PhotoShow
+
+a.btn.btn-block.btn-info href=new_admin_photo_show_path
+  i.fa.fa-plus 添加PhotoShow
+
+table.table.text-center
+  thead
+    tr
+      th 图片
+      th 描述
+      th 操作
+  tbody
+    - @photos.each do |photo|
+      tr
+        th 
+          - if photo.image
+            a href=photo.image.file.url
+              img src=photo.image.file.url width = 200 height = 200
+          - else
+            = '还未设置封面图片'
+        th = photo.description
+        th
+          a.btn.remove-photo href=admin_photo_show_path(photo) data-method="delete" 删除

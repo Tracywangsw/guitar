@@ -1,0 +1,20 @@
+{
+  "name": "xianmu_guitar",
+  "version": "1.0.0",
+  "description": "== README",
+  "main": "",
+  "directories": {},
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fate-lovely/guitar.git"
+  },
+  "author": "CJ Ting<fatelovely1128@gmail.com> Tracywang <mirror_heat@163.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": ""
+  },
+  "homepage": "",
+  "dependencies": {
+  }
+}

@@ -1,0 +1,19 @@
+link[rel="stylesheet" href=asset_path('person.css')]
+.personinfo
+  nav.cd-stretchy-nav.nav-is-visible
+    a.cd-nav-trigger[href="#0"]
+      span[aria-hidden="true"]
+    ul
+      li
+        a.active[href=user_path(current_user)]
+          span
+            | 资料
+      li
+        a[href="#0"]
+          span
+            | 收藏
+      li
+        a[href="#0"]
+          span
+            | 消息
+    span.stretchy-nav-bg[aria-hidden="true"]

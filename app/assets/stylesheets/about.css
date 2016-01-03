@@ -1,0 +1,64 @@
+.content_center{
+    position:absolute; width:100%;height:100%;left:0;top:0;padding:auto  30%;
+}
+a {
+	text-decoration: none;
+	display: block;
+}
+a:hover {
+	text-decoration: none;
+}
+.about_content {
+	width: 75%;
+	margin: 112px auto;
+}
+#vitrine .index_desc {
+	background: #6abc56;
+	border-radius: 320px;
+}
+img {
+	border-radius: 320px;
+}
+
+body{ 
+	overflow-y:hidden;
+}
+
+#vitrine .index_desc span {
+	text-align: center;
+}
+.tabs .tab a {
+	color: #6abc56;
+	display: block;
+	width: 100%;
+	height: 100%;
+	-webkit-transition: color .28s ease;
+	-moz-transition: color .28s ease;
+	-o-transition: color .28s ease;
+	-ms-transition: color .28s ease;
+	transition: color .28s ease;
+} 
+
+.addressmap {
+	width: 50%;
+	height: 100%;
+	float: left;
+	padding-top: 30px;
+}
+.addressmap img {
+	width: 300px;
+	float: right;
+	margin-right: 60px;  
+}
+.addresstxt {
+	width: 50%;
+	height: 100%;
+	float: left;
+	padding-top: 30px;
+}
+.txtdesc {
+	margin-top: 30px;
+	margin-left: 20px;
+	line-height: 36px;
+	color: #6abc56;
+}

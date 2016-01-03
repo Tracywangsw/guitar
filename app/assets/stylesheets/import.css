@@ -1,0 +1,5 @@
+/*
+如果不使用@import,由于Asset Pipeline的原因，所有CSS会被合并成为application.css,这样的话，url的路径就会错误，请求不到文件，导致font awesome图标无法显示
+同时，因为@import必须是css文件的第一个指令，因此application.sass最先引用这个文件
+ */
+@import url(/bower/font-awesome/css/font-awesome.min.css);

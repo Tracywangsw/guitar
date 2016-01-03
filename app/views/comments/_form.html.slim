@@ -1,0 +1,9 @@
+.add-comment
+  = form_for Comment.new, html: {class: 'form-horizontaol'}, remote: true do |f|
+    input type="hidden" name="course_id" value=course.id
+    .form-group
+      = f.label :content, "内容", class: 'control-label col-md-2'
+      .col-md-10
+        = f.text_area :content, class: 'form-control'
+    = f.submit "提交", class: 'btn btn-primary pull-right'
+

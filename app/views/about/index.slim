@@ -1,0 +1,109 @@
+doctype html
+html
+  head
+    title
+      | 弦木
+    meta[http-equiv="Content-Type" content="text/html; charset=UTF-8"]
+    link[rel="stylesheet" href=asset_path('materialize.min.css')]
+    link[rel="stylesheet" href=asset_path('common.css')]
+    link[rel="stylesheet" href=asset_path('about.css')]
+    link[rel="stylesheet" href=asset_path('header.css')]
+    link[rel="stylesheet" href=asset_path('reset.css')]
+    link[rel="stylesheet" href=asset_path('footer.css')]
+    script[src=asset_path('modernizr.js')]
+  body
+    .content_center
+      = render "layouts/head"
+      .about_content
+        .row
+          .col.s12
+            ul.tabs
+              li.tab.col.s4
+                a#zhaopin.active[href="#page1"]
+                  | 人才招聘
+              li.tab.col.s4
+                a[href="#page2"]
+                  | 联系我们
+              li.tab.col.s4
+              li.tab.col.s4
+              li.tab.col.s4
+              li.tab.col.s4
+              li.tab.col.s4
+          #page1.col.s12
+            #vitrine
+              div
+                .index_desc
+                  span
+                    | 描述部分1
+                  span
+                    | 描述部分2
+                img[src="images/about/green.png"]
+              div
+                .index_desc
+                  span
+                    | 描述部分1
+                  span
+                    | 描述部分2描述部分2描述部分2描述部分2描述部分2描述部分2描述部分2描述部分2描述部分2描述部分2描述部分2描述部分2描述部分2描述部分2描述部分2描述部分2描述部分2
+                img[src="images/about/green.png"]
+              div
+                .index_desc
+                  span
+                    | 描述部分1
+                  span
+                    | 描述部分2描述部分2描述部分2描述部分2描述部分2描述部分2描述部分2描述部分2描述部分2描述部分2描述部分2描述部分2描述部分2描述部分2描述部分2描述部分2描述部分2
+                img[src="images/about/green.png"]
+              div
+                .index_desc
+                  span
+                    | 描述部分1
+                  span
+                    | 描述部分2描述部分2描述部分2描述部分2描述部分2描述部分2描述部分2描述部分2描述部分2描述部分2描述部分2描述部分2描述部分2描述部分2描述部分2描述部分2描述部分2
+                img[src="images/about/green.png"]
+              div
+                .index_desc
+                  span
+                    | 描述部分1
+                  span
+                    | 描述部分2描述部分2描述部分2描述部分2描述部分2描述部分2描述部分2描述部分2描述部分2描述部分2描述部分2描述部分2描述部分2描述部分2描述部分2描述部分2描述部分2
+                img[src="images/about/green.png"]
+              div
+                .index_desc
+                  span
+                    | 描述部分1
+                  span
+                    | 描述部分2
+                img[src="images/about/green.png"]
+          #page2.col.s12
+            .addressofme
+              .addressmap
+                img[src="images/map.png" alt="地图"]
+              .addresstxt
+                .txtdesc
+                  span
+                    | 【武广店】
+                  br
+                  span
+                    | 汉口武汉广场后，京汉大道武商路，汉口中心
+                  br
+                  span
+                    | 嘉园区   1-2-1502
+                  br
+                  span
+                    | 武老师TEL: 15972027590
+                  br
+                  span
+                    | 教   室TEL: 027-85746496    15377550362
+                  br
+                  span
+                    | 教   室Q Q: 223568931
+
+      = render "layouts/foot"
+
+    script[src="http://libs.useso.com/js/jquery/2.1.1/jquery.min.js" type="text/javascript"]
+    script
+      | window.jQuery || document.write('<script src=asset_path(\'jquery-2.1.1.min.js\'><\/script>')
+    script[src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"]
+    script[src=asset_path('jquery.vitrine.about.js')]
+    script[type="text/javascript"]
+      |  $(document).ready(function(){ $('ul.tabs').tabs('select_tab', 'zhaopin'); $('#vitrine').vitrine({title:'',color:'green'}); }); 
+    script[src=asset_path('footer.js')]

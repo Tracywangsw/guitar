@@ -1,0 +1,12 @@
+tr
+  td = comment.created_at
+  td = truncate(comment.content, length: 50)
+  td
+    - if comment.is_blocked
+      a.block-comment.btn.btn-primary href=unblock_admin_comment_path(comment) data-method="patch" data-remote="true"
+        | 展现
+    - else
+      a.block-comment.btn.btn-warning href=block_admin_comment_path(comment) data-method="patch" data-remote="true"
+        | 屏蔽
+    a.destroy-comment.btn.btn-danger href=admin_comment_path(comment) data-method="delete" data-remote="true"
+      | 删除

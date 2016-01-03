@@ -1,0 +1,58 @@
+doctype html
+html
+  head
+    title
+      | 弦木吉他--编辑信息
+    meta[http-equiv="Content-Type" content="text/html; charset=UTF-8"]
+    link[rel="stylesheet" href=asset_path('materialize.min.css')]
+    link[rel="stylesheet" href=asset_path('common.css')]
+    link[rel="stylesheet" href=asset_path('header.css')]
+    link[rel="stylesheet" href=asset_path('login.css')]
+    link[rel="stylesheet" href=asset_path('reset.css')]
+    link[rel="stylesheet" href=asset_path('footer.css')]
+    script[src=asset_path('modernizr')]
+  body
+    .content_center
+      = render "layouts/head"
+      .log_reg_div
+        #login-page.row
+          .col.s12.z-depth-6
+            - if @user.errors.any?
+              - @user.errors.full_messages.each do |m|
+                p = m
+            = form_for @user, html: {class: "login-form"} do |f|
+              .row.margin
+                .input-field.col.s12
+                  i.mdi-social-person-outline.prefix
+                  = f.text_field :username, class: "validate", id: "username"
+                  label.center-align[for="username"]
+                    | 用户名
+              .row.margin
+                .input-field.col.s12
+                  i.mdi-communication-email.prefix
+                  = f.text_field :email, class: "validate", id: "email"
+                  label.center-align[for="email"]
+                    | 邮箱
+              .row.margin
+                .input-field.col.s12
+                  i.mdi-action-lock-outline.prefix
+                  = f.password_field :password, class: "validate", id: "password"
+                  label[for="password"]
+                    | 修改密码
+              .row.margin
+                .input-field.col.s12
+                  i.mdi-action-lock-outline.prefix
+                  = f.password_field :password_confirmation, class: "validate", id: "password-again"
+                  label[for="password-again"]
+                    | 确认密码
+              .row
+                .input-field.col.s12[style=" margin-left:10%;width: 80%;"]
+                  = f.submit "保存", class: "btn waves-effect waves-light col s12", style: "color:green " 
+
+          .input-field.col.s12
+      = render "layouts/foot"
+    script[src="http://libs.useso.com/js/jquery/2.1.1/jquery.min.js" type="text/javascript"]
+    script
+      | window.jQuery || document.write('<script src=asset_path(\'jquery-2.1.1.min\')><\/script>')
+    script[src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"]
+    script[src=asset_path('footer')]

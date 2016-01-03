@@ -1,0 +1,12 @@
+h1.paer-header = @course.name
+
+h2 所有评论
+table.table
+  thead
+    tr
+      th 时间
+      th 内容
+      th 操作
+  tbody
+    = render partial: "comment", collection: @course.comments
+

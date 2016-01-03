@@ -1,0 +1,31 @@
+{
+  "name": "xianmu_guitar",
+  "version": "0.0.0",
+  "homepage": "https://github.com/fate-lovely/guitar",
+  "authors": [
+    "CJ Ting <fatelovely1128@gmail.com>",
+    "Tracywang <mirror_heat@163.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor/bower",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "normalize-css": "normalize.css#~3.0.3",
+    "slick-carousel": "~1.5.8",
+    "font-awesome": "~4.4.0",
+    "skeleton": "~2.0.4",
+    "bootstrap": "~3.3.5",
+    "sweetalert": "~1.1.0",
+    "Sortable": "~1.4.2",
+    "nprogress": "~0.2.0"
+  }
+}

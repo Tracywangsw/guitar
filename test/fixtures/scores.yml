@@ -1,0 +1,24 @@
+# == Schema Information
+#
+# Table name: scores
+#
+#  id          :integer          not null, primary key
+#  name        :string
+#  image_ids   :integer          default([]), is an Array
+#  description :string
+#  course_id   :integer
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  image: 
+  description: MyString
+
+two:
+  name: MyString
+  image: 
+  description: MyString

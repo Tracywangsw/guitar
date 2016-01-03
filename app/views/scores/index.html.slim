@@ -1,0 +1,7 @@
+.scores.row
+  - @scores.each do |score|
+    .col-lg-3
+      .score
+        a href=score_path(score)
+          img src=score.images.first.file.url
+        .meta = "[#{score.description}]"

@@ -1,0 +1,24 @@
+.score
+  h1 = @score.name
+  .well = @score.description
+  - if login?
+    - if current_user.has_collected_score @score.id
+      a.btn.btn-danger.btn-lg.remove-score href=remove_score_user_path(current_user) data-method="patch" data-remote="true" data-params="score_id=#{@score.id}" 取消收藏
+    - else
+      a.btn.btn-info.btn-lg.collect-score href=collect_score_user_path(current_user) data-method="patch" data-remote="ture" data-params="score_id=#{@score.id}" 收藏
+
+  .images.row
+    - @score.images.each do |image|
+      .col-lg-3
+        a.magnific-popup href=image.file.url
+          img src=image.file.url
+
+javascript:
+  $(".magnific-popup").magnificPopup({
+    type: "image",
+    closeOnContentClick: true,
+    image: {
+      verticalFit: true,
+    },
+  })
+

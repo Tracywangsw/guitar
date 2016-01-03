@@ -1,0 +1,29 @@
+h1.page-header 所有广告栏
+
+a.btn.btn-block.btn-info href=new_admin_advertisement_path
+  i.fa.fa-plus 添加广告
+
+table.table.advertisements
+  thead
+    tr
+      th 名称
+      th 售票链接
+      th 封面图片
+      th 状态
+      th 操作
+  tbody
+    - @ads.each do |ad|
+      tr
+        td = ad.name
+        td = ad.purchase_url
+        td
+          - if ad.cover_image
+            a href=ad.cover_image.file.url
+              img src=ad.cover_image.file.url width=200
+          - else
+            = '还未设置封面图片'
+        td = ad.status == "on" ? "上架" : "下架"
+        td
+          a.btn.edit-ad href=edit_admin_advertisement_path(ad) 编辑
+          | |
+          a.btn.remove-ad href=admin_advertisement_path(ad) data-method="delete" 删除
