@@ -5,6 +5,13 @@ class Admin::CoursesController < Admin::ApplicationController
 
   def create
     @course = Course.new course_params.slice(:name, :video_url, :description)
+    
+    if course_params[:is_recommend] == "yes"
+      @course.is_recommend = true
+    else
+      @course.is_recommend = false
+    end
+
     if @course.save
       if course_params[:cover_image]
         attachment = Attachment.create file: course_params[:cover_image]
@@ -22,6 +29,13 @@ class Admin::CoursesController < Admin::ApplicationController
   def update
     @course = Course.find params[:id]
     @course.assign_attributes course_params.slice(:name, :video_url, :description)
+    
+    if course_params[:is_recommend] == "yes"
+      @course.is_recommend = true
+    else
+      @course.is_recommend = false
+    end
+
     if @course.save
       if course_params[:cover_image]
         attachment = Attachment.create file: course_params[:cover_image]
@@ -61,7 +75,7 @@ class Admin::CoursesController < Admin::ApplicationController
 
   private
   def course_params
-    params.require(:course).permit(:name, :video_url, :score_id, :cover_image, :description)
+    params.require(:course).permit(:name, :is_recommend, :video_url, :score_id, :cover_image, :description)
   end
 
   def create_tag_map(course)

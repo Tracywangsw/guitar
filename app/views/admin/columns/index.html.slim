@@ -13,7 +13,6 @@ a.btn.btn-primary.btn-block href=new_admin_column_path
         th 视频链接
         th 封面图片
         th 描述
-        th 是否推荐到首页
         th 课程相册
         th 操作
     tbody
@@ -28,7 +27,6 @@ a.btn.btn-primary.btn-block href=new_admin_column_path
             - else
               = '还未设置封面图片'
           td = column.description
-          td = column.is_recommend
           td
             a href=admin_column_path(column) target='_blank' 查看相册
           td

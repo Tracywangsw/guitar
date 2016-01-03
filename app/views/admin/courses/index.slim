@@ -15,6 +15,7 @@ a.btn.btn-primary.btn-block href=new_admin_course_path
         th 用户评论
         th 标签
         th 曲谱
+        th 是否推荐到首页
         th 操作
     tbody
       - @courses.each do |course|
@@ -35,6 +36,7 @@ a.btn.btn-primary.btn-block href=new_admin_course_path
                 a href=admin_score_path(course.score) target='_blank' = course.score.name
             - else
               = '没有曲谱'
+          td = course.is_recommend
           td
             a.delete-course data-url=admin_course_path(course) 删除
             | |

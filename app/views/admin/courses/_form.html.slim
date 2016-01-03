@@ -5,6 +5,11 @@
 
 = form_for [:admin, @course], html: { class: "form-horizontal" } do |f|
   .form-group
+    = f.label :is_recommend, "是否推荐到首页", class: 'control-label col-md-2'
+    .col-md-10
+      = f.check_box(:is_recommend, {class: 'form-control'}, "yes", "no")
+
+  .form-group
     = f.label :name, "弦木视频名称", class: 'control-label col-md-2'
     .col-md-10
       = f.text_field :name, class: 'form-control'
