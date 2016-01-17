@@ -1,8 +1,15 @@
 class CommentsController < ApplicationController
   def create
+    @user = User.find session[:user_id]
     @course = Course.find params[:course_id]
-    @comment = @course.comments.create! comment_params
-    render partial: "comment", locals: {comment: @comment}
+    insert_params = comment_params
+    insert_params[:user_id] = session[:user_id]
+    @course.comments.create! insert_params
+    @comments = @course.comments.unblocked
+    respond_to do |format|
+     format.js
+    end
+    # render partial: "comment", locals: {comments: @course.comments.unblocked}
   end
 
   private

@@ -40,7 +40,7 @@ class Course < ActiveRecord::Base
       cover_image = Attachment.find(self.cover_image_id)
       url = cover_image.file.url
     else
-      url = "/assets/index/carousel1.jpg"
+      url = "images/search/01.jpg"
     end
   end
 

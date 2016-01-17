@@ -17,6 +17,7 @@
 
 class User < ActiveRecord::Base
   has_many :messages
+  has_many :comments
 
   validates :email, presence: true, uniqueness: true
   validates :password, presence: true, confirmation: true

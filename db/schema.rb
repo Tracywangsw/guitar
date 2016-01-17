@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160103133357) do
+ActiveRecord::Schema.define(version: 20160117123341) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 20160103133357) do
     t.boolean  "is_blocked",     default: false
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
+    t.integer  "user_id"
   end
 
   add_index "comments", ["commenter_type", "commenter_id"], name: "index_comments_on_commenter_type_and_commenter_id", using: :btree

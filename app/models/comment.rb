@@ -7,6 +7,7 @@
 #  commenter_id   :integer
 #  commenter_type :string
 #  is_blocked     :boolean          default(FALSE)
+#  user_id        :integer
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #

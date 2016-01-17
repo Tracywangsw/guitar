@@ -1,1 +1,18 @@
-li.list-group-item = comment.content
+
+- if @comments.empty?
+  - 'no comments'
+- else
+  - @comments.each do |comment|
+    li.ds-post
+      .ds-post-self
+        .ds-avatar
+          a[rel="nofollow author" target="_blank" onclick="this.href='#';"]
+            img[src="http://tp2.sinaimg.cn/2729310081/50/40067700607/1" alt="门三Yankees"]
+        .ds-comment-body
+          .ds-comment-header
+            a.ds-user-name.ds-highlight[onclick="" target="_blank"] = User.find(comment.user_id).username
+          p = comment.content
+          .ds-comment-footer.ds-comment-actions
+            span.ds-time = comment.created_at
+            a.ds-post-reply[href="javascript:void(0);"]
+              span.ds-icon.ds-icon-reply
