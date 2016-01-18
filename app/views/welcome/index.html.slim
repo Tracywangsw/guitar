@@ -18,11 +18,11 @@ html
     .xm_index_center
       div
         #vitrine.container
-          - @columns.each do |c|
+          - @courses.each do |c|
             div
               .index_desc
                 span
-                  a[href=column_path(c) target="_blank" title=c.description] = c.name
+                  a[href=course_path(c) target="_blank" title=c.description] = c.name
                 span = c.description
               img[src=c.cover_image.file.url]
 
