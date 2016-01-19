@@ -1,11 +1,11 @@
 class Admin::CoursesController < Admin::ApplicationController
   def index
-    @courses = Course.all
+    @courses = Course.order(id: :asc)
   end
 
   def create
     @course = Course.new course_params.slice(:name, :video_url, :description)
-    
+
     if course_params[:is_recommend] == "yes"
       @course.is_recommend = true
     else
@@ -79,18 +79,18 @@ class Admin::CoursesController < Admin::ApplicationController
   end
 
   def create_tag_map(course)
-      tag_string = params[:tag].strip
-      if tag_string
-        tag_list = tag_string.split
-        tag_list.each do |t|
-          old_tag = Tag.find_by_name(t)
-          if old_tag
-            CourseTag.create(tag_id: old_tag.id, course_id: course.id)
-          else
-            tag = Tag.create(name: t)
-            CourseTag.create(tag_id: tag.id, course_id: course.id)
-          end
+    tag_string = params[:tag].strip
+    if tag_string
+      tag_list = tag_string.split
+      tag_list.each do |t|
+        old_tag = Tag.find_by_name(t)
+        if old_tag
+          CourseTag.create(tag_id: old_tag.id, course_id: course.id)
+        else
+          tag = Tag.create(name: t)
+          CourseTag.create(tag_id: tag.id, course_id: course.id)
         end
       end
     end
+  end
 end

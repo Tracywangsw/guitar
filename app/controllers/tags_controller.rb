@@ -7,5 +7,6 @@ class TagsController < ApplicationController
     @tag = Tag.find params[:id]
     @columns = @tag.columns
     @courses = @tag.courses
+    render 'courses/index'
   end
 end
