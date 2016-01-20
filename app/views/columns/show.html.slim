@@ -1,6 +1,86 @@
-h1.page-header = @column.name
+doctype html
+html
+  head
+    meta[charset="utf-8"]
+    meta[name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0"]
+    title
+      | 弦木吉他--视频播放
+    = javascript_include_tag "application", 'data-turbolinks-track' => true
+    link[rel="stylesheet" href=asset_path("reset.css")]
+    link[rel="stylesheet" href=asset_path("bootstrap.min.css")]
+    link[rel="stylesheet" href=asset_path("courses/willesPlay.css")]
+    link[rel="stylesheet" href=asset_path("courses/video.css")]
+    link[rel="stylesheet" href=asset_path("courses/font-awesome.min.css")]
+    link[rel="stylesheet" href=asset_path("courses/menu_sideslide.css")]
+    link[rel="stylesheet" href=asset_path("normalize.css")]
+    link[rel="stylesheet" href=asset_path("courses/qinpu.css")]
+    link[rel="stylesheet" href=asset_path("courses/lightslider.css")]
+    link[rel="stylesheet" href=asset_path("courses/videoshow.css")]
+    style
+      |  ul{ list-style: none outside none; padding-left: 0; margin: 0; } .qinpu .item{ margin-bottom: 20px; margin-top: 10px; margin-left: 20px; margin-right: 20px; } .content-slider li{ background-color: #66677c; text-align: center; width:100%; color: #FFF; } .content-slider h3 { margin: 0; padding: 70px 0; } .qinpu{ width: 100%; margin: 0 auto; } 
+  body
+    .returnindex
+      a.btn-return[href=root_path title="返回主页"]
+        | 返回主页
+    .xm_videoshow
+      .videoshow
+        .playshow
+          == @column.video_url
+    .commentshow
+      .video_title
+        div
+          br
+          br
+          span.title_normal
+            | 曲名：
+          span.title_name = @column.name
+          br
+          span.title_normal
+            | 描述：
+          span.title_desc = @column.description
+          hr
+      .video_comment
+        ul.ds-comments
+          = render 'comments/comment'
 
-.well = @column.description
+      div
+        - if login?
+          = form_for Comment.new, remote: true do |f|
+            .ds-textarea-wrapper.ds-rounded-top
+              input type="hidden" name="column_id" value=@column.id
+              = f.text_area :content, placeholder: "说点什么吧…"
+              pre.ds-hidden-text
+            .ds-post-toolbar
+              = f.submit "评论", class: 'ds-post-button'
+        - else
+          .ds-textarea-wrapper.ds-rounded-top
+            p
+              | 登录之后才能评论，
+              a href=login_path 请点击登录
 
-.video
-  == @column.video_url
+    - if @pictures
+      .menu-wrap
+        nav.menu
+          .qinpu
+            .item
+              .clearfix
+                ul#image-gallery.gallery.list-unstyled.cS-hidden
+                  - @pictures.each do |picture|
+                      li[data-thumb=picture.file.url]
+                        img[src=picture.file.url height="560px"]
+        button#close-button.close-button
+          | Close Menu
+      a[href="javascript:0;"]
+
+      #open-button.openimg_list
+        #txt-isshow
+          | 查看相册
+
+  script[src=asset_path("courses/classie.js")]
+  script[src=asset_path("courses/main.js")]
+  script[src="http://libs.useso.com/js/jquery/1.10.2/jquery.min.js" type="text/javascript"]
+  script
+    | window.jQuery || document.write('<script src=asset_path("jquery-2.1.1.min.js")><\/script>')
+  script[src=asset_path("courses/lightslider.js")]
+  script
+    |  $(document).ready(function() { $("#content-slider").lightSlider({ loop:true, keyPress:true }); $('#image-gallery').lightSlider({ gallery:true, item:1, thumbItem:9, slideMargin: 0, speed:500, auto:false, loop:true, onSliderLoad: function() { $('#image-gallery').removeClass('cS-hidden'); } }); });

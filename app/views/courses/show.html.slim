@@ -54,7 +54,9 @@ html
               = f.submit "评论", class: 'ds-post-button'
         - else
           .ds-textarea-wrapper.ds-rounded-top
-            a href=login_path login
+            p
+              | 登录之后才能评论，
+              a href=login_path 请点击登录
 
     - if @score
       .menu-wrap

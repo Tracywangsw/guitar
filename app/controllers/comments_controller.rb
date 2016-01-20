@@ -1,11 +1,17 @@
 class CommentsController < ApplicationController
   def create
     @user = User.find session[:user_id]
-    @course = Course.find params[:course_id]
     insert_params = comment_params
     insert_params[:user_id] = session[:user_id]
-    @course.comments.create! insert_params
-    @comments = @course.comments.unblocked
+    if params[:course_id]
+      @course = Course.find params[:course_id]
+      @course.comments.create! insert_params
+      @comments = @course.comments.unblocked
+    elsif params[:column_id]
+      @column = Column.find params[:column_id]
+      @column.comments.create! insert_params
+      @comments = @column.comments.unblocked
+    end
     respond_to do |format|
      format.js
     end

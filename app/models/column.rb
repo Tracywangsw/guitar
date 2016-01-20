@@ -16,6 +16,7 @@
 class Column < ActiveRecord::Base
   has_many :column_tags
   has_many :tags, through: :column_tags
+  has_many :comments, -> { order 'created_at desc' }, as: :commenter
   
   validates :name, :video_url, presence: true
   enum category: [:teacher, :student, :master]

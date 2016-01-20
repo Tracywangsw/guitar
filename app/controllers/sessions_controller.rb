@@ -1,6 +1,8 @@
 class SessionsController < ApplicationController
 
   def new
+    # puts "!!!login"
+    render "new"
   end
 
   def create
@@ -10,6 +12,11 @@ class SessionsController < ApplicationController
         redirect_to login_path
       else
         session[:user_id] = user.id
+        # THERE IS A PROBLEM: TWO REQUEST PER ACTION!!!
+        # redirect_to :back
+        # rescue ActionController::RedirectBackError
+        #   redirect_to root_path
+        # end
         redirect_to root_path
       end
     else
