@@ -4,28 +4,31 @@ html
     title
       | 弦木吉他--课程介绍专栏
     meta[http-equiv="Content-Type" content="text/html; charset=UTF-8"]
-    link[rel="stylesheet" href=asset_path('materialize.min.css')]
-    link[rel="stylesheet" href=asset_path('common.css')]
-    link[rel="stylesheet" href=asset_path('header.css')]
-    link[rel="stylesheet" href=asset_path('search.css')]
-    link[rel="stylesheet" href=asset_path('reset.css')]
+    link[rel="stylesheet" href=asset_path('courses/font-awesome.min.css')]
+    link[rel="stylesheet" href=asset_path('normalize.css')]
+    link[rel="stylesheet" href=asset_path('courses/video.css')]
     link[rel="stylesheet" href=asset_path('footer.css')]
-    script[src=asset_path('modernizr.js')]
   body
-    = render "layouts/head"
 
-    .cd-bouncy-nav-modal
-      nav
-        ul.cd-bouncy-nav
-          - @columns.each do |c|
-            li
-              a[href=column_path(c)]
+    .xm_video
+      .grid
+        - @columns.each do |c|
+          .grid-item
+            a[href=column_path(c) title=c.name]
+              li.con
                 img[src=c.get_cover_image_url]
-                = c.name
+                .txt
+                  h3 = c.name
+                  p = c.description
+
     = render "layouts/foot"
+
     script[src="http://libs.useso.com/js/jquery/2.1.1/jquery.min.js" type="text/javascript"]
     script
       | window.jQuery || document.write('<script src=asset_path(\'jquery-2.1.1.min.js\')><\/script>')
     script[src=asset_path('footer.js')]
+    script[src=asset_path("courses/dynamics.js")]
+    script[src=asset_path("courses/minigrid.js")]
+    script[src=asset_path("courses/video.js")]
     script
-      |  $('.cd-bouncy-nav-modal').toggleClass('fade-in', true).toggleClass('fade-out', false).find('li:last-child').one('webkitAnimationEnd oanimationend msAnimationEnd animationend', function(){ $('.cd-bouncy-nav-modal').toggleClass('is-visible', true); if(!$bool) $('.cd-bouncy-nav-modal').removeClass('fade-out'); }); if($('.cd-bouncy-nav-trigger').parents('.no-csstransitions').length > 0 ) { $('.cd-bouncy-nav-modal').toggleClass('is-visible',true); } 
+      |  (function(){ function animate(item, x, y, index) { dynamics.animate(item, { translateX: x, translateY: y, opacity: 1 }, { type: dynamics.spring, duration: 800, frequency: 120, delay: 100 + index * 30 }); } minigrid('.grid', '.grid-item', 6, animate); window.addEventListener('resize', function(){ minigrid('.grid', '.grid-item', 6, animate); }); })(); 
