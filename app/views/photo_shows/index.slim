@@ -17,9 +17,13 @@ html[lang="zh"]
     div
       .content
         .chroma-gallery.mygallery
-          - @photos.each do |photo|
-            - if photo.image
-              img src=photo.image.file.url
+          - if @taobao
+            - @photos.each do |photo|
+              - if photo.image
+                img src=photo.image.file.url
+          - else
+            h2[style="text-align:center"]
+              | 敬请期待
     = render "layouts/foot"
     script[src="http://libs.useso.com/js/jquery/2.1.1/jquery.min.js" type="text/javascript"]
     script
