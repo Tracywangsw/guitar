@@ -1,2 +1,10 @@
-$('ul.ds-comments').html('<%= j render 'comment' %>')
-$('#comment_content').val("")
+// $('ul.ds-comments').html('<%= j render 'comment' %>')
+// $('#comment_content').val("")
+
+<% if @new_comment.new_record? %>
+  alert('评论内容不能为空');
+<% else %>
+  // alert('评论成功！');
+  $('ul.ds-comments').html('<%= j render 'comment' %>')
+  $('#comment_content').val("")
+<% end %>
